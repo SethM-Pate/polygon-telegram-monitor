@@ -1,0 +1,53 @@
+{
+    "name": "Your Smart Contract Monitor",
+    "paused": false,
+    "networks": ["polygon_mainnet"],
+    "addresses": [
+      {
+        "address": "0x322A88614F19c5B18F96694b74f1eb74334c9B2e",
+        "contract_spec": [
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "Transfer",
+            "type": "event"
+          }
+        ]
+      }
+    ],
+    "match_conditions": {
+      "events": [
+        {
+          "signature": "Transfer(address,address,uint256)",
+          "expression": "value > 1000000000000000000"
+        }
+      ],
+      "transactions": [
+        {
+          "status": "Success",
+          "expression": null
+        }
+      ]
+    },
+    "trigger_conditions": [],
+    "triggers": ["your_contract_telegram_alert"]
+  }
