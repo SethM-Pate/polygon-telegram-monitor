@@ -1,0 +1,18 @@
+{
+  "smart_contract_telegram_alert": {
+    "name": "Smart Contract Telegram Alert",
+    "trigger_type": "telegram",
+    "config": {
+      "token": {
+        "type": "plain",
+        "value": "7629593696:AAFY3BGRiK0HgC7tN7c6ALFlwRiqCFuRj3E"
+      },
+      "chat_id": "5387351914",
+      "disable_web_preview": false,
+      "message": {
+        "title": "🚨 Smart Contract Activity Detected",
+        "body": "*Contract:* `0x322A88614F19c5B18F96694b74f1eb74334c9B2e`\n\n*Event:* ${events.0.name}\n*From:* `${events.0.args.from}`\n*To:* `${events.0.args.to}`\n*Value:* `${events.0.args.value}`\n\n*Transaction Hash:* `${transaction.hash}`\n\n[View on Polygonscan](https://polygonscan.com/tx/${transaction.hash})"
+      }
+    }
+  }
+} 
