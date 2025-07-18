@@ -14,5 +14,15 @@
         "body": "*Contract:* `0x322A88614F19c5B18F96694b74f1eb74334c9B2e`\n\n*Event:* ${events.0.name}\n*From:* `${events.0.args.from}`\n*To:* `${events.0.args.to}`\n*Value:* `${events.0.args.value}`\n\n*Transaction Hash:* `${transaction.hash}`\n\n[View on Polygonscan](https://polygonscan.com/tx/${transaction.hash})"
       }
     }
+  },
+  "scheduled_report_telegram": {
+    "name": "Scheduled Daily Report",
+    "trigger_type": "script",
+    "config": {
+      "language": "JavaScript",
+      "script_path": "./config/triggers/scripts/scheduled_report_with_telegram.js",
+      "arguments": [],
+      "timeout_ms": 30000
+    }
   }
 } 

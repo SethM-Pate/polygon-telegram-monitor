@@ -1,0 +1,81 @@
+{
+  "name": "Scheduled Daily Report",
+  "paused": false,
+  "networks": ["polygon_mainnet"],
+  "addresses": [
+    {
+      "address": "0x322A88614F19c5B18F96694b74f1eb74334c9B2e",
+      "contract_spec": [
+        {
+          "inputs": [],
+          "name": "getAllAdmins",
+          "outputs": [
+            {
+              "internalType": "address[]",
+              "name": "",
+              "type": "address[]"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "totalCertificates",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endTime",
+              "type": "uint256"
+            }
+          ],
+          "name": "getCertificatesInTimeWindow",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ]
+    }
+  ],
+  "match_conditions": {
+    "functions": [],
+    "events": [],
+    "transactions": [
+      {
+        "status": "Success",
+        "expression": null
+      }
+    ]
+  },
+  "trigger_conditions": [
+    {
+      "script_path": "./config/filters/scheduled_report_filter.sh",
+      "language": "Bash",
+      "arguments": [],
+      "timeout_ms": 5000
+    }
+  ],
+  "triggers": ["scheduled_report_telegram"]
+} 

@@ -1,0 +1,13 @@
+{
+  "name": "scheduled-report-scripts",
+  "version": "1.0.0",
+  "description": "Scripts for generating scheduled reports",
+  "main": "scheduled_report.js",
+  "dependencies": {
+    "ethers": "^6.8.1"
+  },
+  "scripts": {
+    "install-deps": "npm install",
+    "test": "node scheduled_report.js"
+  }
+} 
