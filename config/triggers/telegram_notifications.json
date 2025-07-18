@@ -20,9 +20,9 @@
     "trigger_type": "script",
     "config": {
       "language": "JavaScript",
-      "script_path": "./config/triggers/scripts/scheduled_report_with_telegram.js",
+      "script_path": "./config/triggers/scripts/enhanced_report.js",
       "arguments": [],
-      "timeout_ms": 30000
+      "timeout_ms": 300000
     }
   }
 } 

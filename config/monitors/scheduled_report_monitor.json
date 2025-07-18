@@ -8,12 +8,12 @@
       "contract_spec": [
         {
           "inputs": [],
-          "name": "getAllAdmins",
+          "name": "totalSupply",
           "outputs": [
             {
-              "internalType": "address[]",
+              "internalType": "uint256",
               "name": "",
-              "type": "address[]"
+              "type": "uint256"
             }
           ],
           "stateMutability": "view",
@@ -21,36 +21,12 @@
         },
         {
           "inputs": [],
-          "name": "totalCertificates",
+          "name": "owner",
           "outputs": [
             {
-              "internalType": "uint256",
+              "internalType": "address",
               "name": "",
-              "type": "uint256"
-            }
-          ],
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "inputs": [
-            {
-              "internalType": "uint256",
-              "name": "startTime",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "endTime",
-              "type": "uint256"
-            }
-          ],
-          "name": "getCertificatesInTimeWindow",
-          "outputs": [
-            {
-              "internalType": "uint256",
-              "name": "",
-              "type": "uint256"
+              "type": "address"
             }
           ],
           "stateMutability": "view",
@@ -74,7 +50,7 @@
       "script_path": "./config/filters/scheduled_report_filter.sh",
       "language": "Bash",
       "arguments": [],
-      "timeout_ms": 5000
+      "timeout_ms": 30000
     }
   ],
   "triggers": ["scheduled_report_telegram"]
