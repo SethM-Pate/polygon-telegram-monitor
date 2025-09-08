@@ -85,7 +85,7 @@ jobs:
           push-to-registry: false
           github-token: ${{ steps.gh-app-token.outputs.token }}
       - name: Docker Hub Description
-        uses: peter-evans/dockerhub-description@a701644270a123c7b02b318a8e4fe71e15a8f3cb
+        uses: peter-evans/dockerhub-description@a48612b8e6616e9e5a3e7bd0c18b90003ec2e5dc
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PAT }}
