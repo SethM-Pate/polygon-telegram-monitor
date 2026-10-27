@@ -34,13 +34,20 @@ jobs:
           egress-policy: audit
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.5.4
-      # Run the "semgrep ci" command on the command line of the docker image.
-      - run: semgrep ci --sarif --sarif-output=semgrep.sarif
+      - name: Scan and generate SARIF
+        run: |
+          if [ -n "$SEMGREP_APP_TOKEN" ]; then
+            semgrep ci --no-suppress-errors --sarif --sarif-output=semgrep.sarif
+          else
+            semgrep scan --config p/default --sarif --sarif-output=semgrep.sarif
+          fi
+          test -s semgrep.sarif
         env:
           # Connect to Semgrep AppSec Platform through your SEMGREP_APP_TOKEN.
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 
       - name: Upload SARIF file for GitHub Advanced Security Dashboard
+        if: ${{ !cancelled() && hashFiles('semgrep.sarif') != '' }}
         uses: github/codeql-action/upload-sarif@fca7ace96b7d713c7035871441bd52efbe39e27e  # v3.28.19
         with:
           sarif_file: semgrep.sarif
